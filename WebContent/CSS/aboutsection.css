@@ -1,0 +1,66 @@
+
+.MainDiv{
+	
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 4%;
+	margin-bottom:4%;
+	padding:20px;
+	background: #004445;
+	color: white;
+}
+
+hr{
+	
+	border-color:#2C7873;
+	border-top: 2px solid	#D3D3D3
+}
+
+.details{
+	
+	padding: 10px;
+}
+
+.About{
+	
+	font-size: 30px;
+
+}
+
+.heading{
+	
+	text-decoration: underline;
+	font-size: 25px;
+}
+
+.images{
+	
+	
+	border-radius:50%;
+	height: 150px;
+	width: 150px;
+	border: 4px solid white;
+	
+}
+
+.images:hover{
+	
+	transform:scale(1.2);
+}
+
+.image{
+	
+	
+	display: flex;
+}
+h3{
+	
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+h4{
+	
+	margin-left: 20px;
+	margin-top: 5px;
+}

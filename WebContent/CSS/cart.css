@@ -1,0 +1,55 @@
+
+.cartMainDiv{
+	
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 4%;
+}
+
+hr{
+	
+	
+	border-top: 1px solid	#D3D3D3
+}
+
+.cartName{
+	
+	font-size: 30px;
+	color:black;
+}
+
+.continuebtn{
+	
+	float: right;
+	color:white;
+	background: #2C7873;
+padding:10px;
+border-radius:20px;
+margin-left:60%;
+font-size:20px;
+cursor:pointer;
+text-decoration: none;
+}
+
+#quantity{
+	
+	width: 15%;
+}
+
+#cross{
+	
+	margin-left:20px;
+	
+	cursor: pointer;
+}
+
+.price{
+	
+	margin-top:25px;
+	margin-left: 45%;
+}
+
+.cartItem{
+
+display:flex;
+}

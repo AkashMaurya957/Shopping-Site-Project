@@ -1,0 +1,72 @@
+
+
+
+.column {
+ 
+ float:left;
+  width: 21%;
+  height:360px;
+  padding: 5px;
+ margin-bottom:2%;
+
+
+
+
+}
+
+
+p{
+	
+	font-size: 20px;
+	
+}
+
+.filterinput{
+	
+	padding:5px;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  margin: auto;
+  padding:5px;
+  max-height:400px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+
+
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+

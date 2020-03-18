@@ -1,0 +1,49 @@
+input{
+	
+	
+	width:100%;
+	padding:5px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+
+	
+}
+input:focus {
+  border: 2px solid #2C7873;
+  
+}
+.borderstyle{
+	
+    border:1px solid #2C7873;
+    padding:40px;
+	width:600px;
+	border-radius:40px;
+	margin-bottom:20px;
+	margin-left:25%;
+	margin-right: 25%;
+}
+
+.lab{
+	
+	color:#2C7873;
+}
+
+.sub{
+	
+	
+		
+  background-color: #2C7873; 
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+ -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  border-radius: 20px;
+  
+}

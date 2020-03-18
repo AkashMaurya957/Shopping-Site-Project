@@ -1,0 +1,192 @@
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+ 
+}
+body{
+   
+   background-color:#F5F5F5;
+   font-size:20px;
+   overflow-x:hidden;
+   font-family: 'Flamenco', cursive;
+   }
+
+.row{
+   max-width:1180px;
+   margin:0 auto;
+   
+   
+}
+
+* {box-sizing: border-box;}
+
+.input-container{
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+ margin-top: 7px;
+}
+
+.icon {
+  padding: 10px;
+  background: #66A5AD;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+  
+}
+
+.input-field {
+  width: 100%;
+  padding: 5px;
+  outline: none;
+ 
+ 
+  
+}
+.error_text{
+  margin-inline-start: 35px;
+  color: red;
+
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #66A5AD;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+} 
+.sign{
+float:right;
+position:relative;
+}
+
+.backimge{
+height:500px;
+width:0 auto;
+}
+
+.formdesign{
+   display: -ms-flexbox; 
+   display: flex;
+   margin:top:200px;
+   margin-left:10px;
+   padding:10px;	
+   width:700px;
+   box-shadow: 0 18px 15px #486685;
+   margin:0 auto;
+}
+
+.formRegister{
+width:100%;
+padding:10px;
+margin-left: 10px;
+}
+
+body,html{
+padding:0px;
+margin:0px;
+background-color:#F5F5F5;
+}
+
+
+.siteMenu{
+   
+    top:0;
+    background-color:#2C7873;
+    height:80px;
+    width:100%;
+}
+
+
+.siteName{
+
+float:left;
+margin-top:10px;
+font-weight:100%;
+}
+
+.siteName li{
+   font-size:40px;
+   color:white;
+   font-weight:100%;
+   list-style:none;
+}
+.logo{
+    height:50px;
+    width:auto;
+    float:left;
+    margin:10px;
+ }
+
+.colorChange{
+animation:colorChange 1s infinite;
+}
+
+@keyframes colorChange{
+0%{color:white;}
+25%{color:#004445;}
+50%{color:#6FB98F;}
+100%{color:#66A5AD;}
+}
+
+
+.foot{
+
+height:100px; 
+    width: 100%; 
+background-color:#696969;
+    
+    bottom: 0pt;
+    left: 0pt;
+
+}
+
+.cnt{
+height:30px;
+width:0 auto;
+border:1 px solid white;
+
+}
+
+.icons{
+    float:right;
+     margin-top:5x;
+     margin-right:50px;
+    
+}
+
+.icons li{
+
+display:inline-block;
+   list-style:none;
+   margin-left:10px;
+}
+
+.email{
+
+font-color:white; 
+font-size:20px;
+text-decoration:none;
+
+}
+
+
+.formDiv{
+
+margin-top:20px;
+margin-bottom:20px;
+}

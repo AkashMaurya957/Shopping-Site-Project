@@ -1,0 +1,30 @@
+
+.lower{
+
+
+background:#004445;
+text-align: center;
+color:white;
+font-size:20px;
+padding:6px;
+}
+
+.heading{
+
+background:#004445;
+text-align: center;
+color:white;
+font-size:25px;
+padding:6px;
+
+}
+
+.content{
+border: 1px solid #004445;
+width: 30%;
+background: white;
+margin: 0 auto;
+ margin-top: 5%;
+}
+
+

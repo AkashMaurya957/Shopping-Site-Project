@@ -1,0 +1,227 @@
+
+*{
+margin: 0px;
+padding: 0px;	
+	
+}
+
+
+.showdata{
+width: 92%;	
+	
+ 
+
+}
+
+
+.CustomerMenu{
+
+	width: 8%;
+	height:100%;
+	background: #2C7873;
+	color: white;
+	
+	
+	
+	
+}
+
+#CustomerDetails{
+	
+	
+	margin-top: 5%;
+	color:white;
+	text-align:center;
+	border-radius:20px;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding:20px;
+	background: rgba(0,0,0,0.8);
+	
+	
+}
+
+.tablinks{
+	margin-left: 20%;
+	
+
+}
+
+
+.tablinks:hover{
+	
+	
+	color:#004445;
+
+}
+
+.name{
+	
+	font-size: 30px;
+}
+
+.user{
+	
+	display: flex;
+	text-align: center;
+	margin-left:20%; 
+	margin-right: 20%;
+	margin-bottom: 5%;
+}
+
+.lab{
+	
+	font-size: 20px;
+}
+
+.info{
+	
+	margin-left: 5px;
+}
+
+
+#Order{
+	
+	
+	width: 100%;
+    height: auto;
+   
+
+
+}
+
+.orderStatus{
+width: 90%;
+margin-left: 5%;
+margin-right: 5%;
+
+
+
+
+}
+
+.orderView{
+
+	float: right;
+	margin-right: 5%;
+	text-decoration: none;
+	font-size: 20px;
+	color:#004445;
+}
+
+
+.orderView:hover{
+
+	color: red;
+}
+
+.back{
+
+	
+	padding: 20px;
+	background: 
+}
+
+#Security{
+	
+	margin-top: 8%;
+}
+
+.boxsecurity{
+	border:1px solid #004445;
+	width: 60%;
+
+	border-radius:10px;
+	margin: 0 auto;
+	color:#004445;
+	
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+
+
+
+
+.close1 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close1:hover,
+.close1:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+
+.close2 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  
+}
+
+
+
+.close3{
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close3:hover,
+.close3:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  
+}

@@ -1,0 +1,375 @@
+@charset "ISO-8859-1";
+
+* {
+  box-sizing: border-box;
+  padding:0px;
+  margin:0px;
+}
+
+#block{
+	
+	background: #2C7873;
+	padding: 10px;
+	width:100%;
+	color:white;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+#blockVendor{
+	
+	background: #2C7873;
+	padding: 10px;
+	width:100%;
+	color:white;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+#AcceptReject{
+	
+	border: none;
+	background: none;
+	color: red;
+	
+}
+
+#AcceptReject:hover{
+	
+color: white;
+background: #004445;
+border-radius:5px;
+padding:5px;	
+cursor: pointer;
+}
+
+.tab {
+  float: left;
+  width: 20%;
+
+	background: #37474F;
+	color:white;
+	position:relative;
+    bottom:0px;
+    top:0px;
+ 
+}
+
+.tablinks{
+	padding-left:2%;
+	margin-left:3%;
+	margin-right:3%;
+	margin-top:10px;
+	padding:18px;
+    color:white;
+    background:#37474F;
+    text-decoration: none;
+    display: block; 	
+   
+}
+
+.tablinks:hover{
+	background: #87ceeb;
+	color:black;
+	 cursor: pointer;
+	
+}
+
+.btn{
+	
+	
+  background-color: #2C7873; 
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  margin-right:5%;
+  cursor: pointer;
+ -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  width:100%;
+  border-radius: 20px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+img{
+
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top:50px;
+  
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: right;
+  padding: 0px ;
+  color:#004445;
+  text-align:center;
+  width: 100%;
+ 
+}
+
+.right{
+	
+	float:right;
+  width: 79%;	
+  padding:1%;
+}
+
+.sideleft{
+	
+	
+	width: 20%;
+	background: #37474F;
+	float:left;
+}
+
+img{
+
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top:50px;
+  
+}
+
+
+.tabcontent table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+    
+   
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+th{
+background-color:#004445;
+color:white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.notification1 {
+ 
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification{
+	
+	color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+.notification .badge {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+
+.notification1:hover {
+  background:#87ceeb;
+  color:black;
+}
+
+.notification1 .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color:red;
+  color: white;
+}
+
+
+.header{
+	
+	padding:10px;
+	background:#07575B;
+	border:2px solid white;
+	display: flex;
+}
+
+
+
+.profile{
+	
+	margin-left: 58%;
+	display: flex;
+}
+
+.btn1{
+	
+padding:10px 20px;
+text-decoration: none;	
+}
+
+.dropbtn {
+  background-color: transparent;
+ 
+  color:white;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+	 padding:10px;
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown1 {
+width:100%;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+	
+ display: none;
+  position: absolute; 
+}
+
+.productform{
+	
+	display: none;
+}
+.dropdown-content a {
+	margin-left:10px;
+  color: white;
+  background:black;
+  padding: 12px 50px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #66A5AD;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #C4DFE6;}
+
+
+.dropdown1:hover .dropdown-content {display: block;}
+
+.dropdown1:hover .dropbtn {background-color: #C4DFE6;}
+
+
+
+
+.box{
+	
+	width:24%;
+	margin:1%;
+	
+	text-align: center;
+	background:#8A2BE2;
+    color:white;
+    padding:60px 20px;
+	
+	
+}
+
+.boxicon{
+	
+	border-radius: 20px;
+	padding:10px;
+	background: white;
+	color:#8A2BE2;
+}
+
+.box1{
+	
+	width:24%;
+	margin:1%;
+	
+	text-align: center;
+	background:#50C878;
+    color:white;
+    padding:60px 20px;
+	
+	
+}
+
+.boxicon1{
+	
+	border-radius: 20px;
+	padding:10px;
+	background: white;
+	color:#50C878;
+}
+
+.box2{
+	
+	width:24%;
+	margin:1%;
+	background:#48b4e0;
+	text-align: center;
+	
+    color:white;
+   padding:60px 20px;
+	
+	
+}
+
+.boxicon2{
+	
+	border-radius: 20px;
+	padding:10px;
+	background: white;
+	color:#48b4e0;
+}
+.box3{
+	
+	width:24%;
+	margin:1%;
+	
+	text-align: center;
+	background:#FFD700;
+    color:white;
+    padding:60px 20px;
+	
+	
+}
+
+.boxicon3{
+	
+	border-radius: 20px;
+	padding:10px;
+	background: white;
+	color:#FFD700;
+}
