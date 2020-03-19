@@ -87,8 +87,8 @@ public class Accept extends HttpServlet {
     		
     		
     		final String messg = "Your Password "+Password+" \n for Login with Shopping Bazzar \nYou Can Change Your Password from Your Profile If You want \nThanks For Join with us and selling Product with us";
-    		final String from = "shoppingbazar100@gmail.com";
-    		final String pass = "superb100";
+    		final String from = "abc@gmail.com";
+    		final String pass = "abc";
     		final String subject="Reset Password OTP ";
     		String host = "smtp.gmail.com";
     		Properties props = new Properties();
