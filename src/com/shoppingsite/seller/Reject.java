@@ -57,8 +57,8 @@ public class Reject extends HttpServlet {
 		  if(i>0){
 			  
 			  final String messg = "Your Request for selling Product with us .\n We found your details is not correct";
-	    		final String from = "shoppingbazar100@gmail.com";
-	    		final String pass = "superb100";
+	    		final String from = "abc@gmail.com";
+	    		final String pass = "abc";
 	    		final String subject="Reset Password OTP ";
 	    		String host = "smtp.gmail.com";
 	    		Properties props = new Properties();
