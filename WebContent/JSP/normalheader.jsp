@@ -5,8 +5,10 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ 
 
 <style>
 
@@ -16,7 +18,7 @@
    box-sizing: border-box;
 }
 body{
-   
+    font-family: 'Dosis', sans-serif;
    background-color:#F5F5F5;
  
    }
@@ -178,16 +180,16 @@ span.psw {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
   padding-top: 60px;
 }
 
@@ -280,7 +282,7 @@ display:none;
 
 <div class="siteMenu clearfix">
 
-  <nav> 
+  
    <div class="row animated slideInDown">
   
    <img src="${pageContext.request.contextPath}\logo\logo.png" class="logo">
@@ -290,7 +292,7 @@ display:none;
    </ul>
    
   <ul  class="main-nav clearfix pull-right" id="checkId" >
-  <li><a href="homepage.jsp" class="btn full_btn " >Home</a></li>
+  <li><a href="${pageContext.request.contextPath}/JSP/homepage.jsp" class="btn full_btn " >Home</a></li>
   <li><a href="cart.jsp" class="btn full_btn">Cart</a></li>
  
   <% 
@@ -299,16 +301,7 @@ if(session.getAttribute("user")!=null)
 { %>
 
 	 <li><a href="#" class="username btn"  id="afterlogin" ><%= session.getAttribute("user") %></a></li>
-	 <li class="dropdown" > <a class=" btn full_btn dropbtn" >More</a>
-   
-   <div class="dropdown-content">
-    <a href="#"><input type="submit" value="Profile" style="border: none; background-color: Transparent;cursor: pointer; "></a>
-    <form action="${pageContext.request.contextPath}/Logout">
-    <a><input type="submit" value="Logout" style="border: none; background-color: Transparent;cursor: pointer; "></a>
-    </form>
-    <a href="#"><input type="submit" value="About" style="border: none; background-color: Transparent;cursor: pointer; "></a>
-  </div>
-   </li>
+
 
 	 
 <% 	   	
@@ -328,8 +321,6 @@ if(session.getAttribute("user") == null){%>
   <a href="#" class="mobile-icon-bar"  onclick="slideshow()"><i class="fa fa-bars"></i> </a>
   </div>
   
-</nav>
-
 </div>
 
 </body>

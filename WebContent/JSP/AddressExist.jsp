@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Address</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/adressexist.css">
 </head>
 <body>
@@ -54,8 +54,8 @@ request.setAttribute("list1",list1);
      <p class="cust"><c:out value="${bean.getHno()}"/></p>
      
      <p class="cust"><c:out value="${bean.getLandmark()}"/></p>
-    <p class="cust"><c:out value="${bean.getCity()}"/> ,&nbsp <c:out value="${bean.getState()}"/> &nbsp <c:out value="${bean.getPincode()}"/></p>
-    <p class="cust"><c:out value="${bean.getCountry()}"/></p>
+    <p class="cust"><c:out value="${bean.getCity()}"/> ,&nbsp<c:out value="${bean.getCountry()}"/> <c:out value="${bean.getState()}"/> &nbsp </p>
+    <p class="cust"><c:out value="${bean.getPincode()}"/></p>
     <p class="cust">Phone:<c:out value="${bean.getMobilenumber()}"/></p>
      </c:forEach>		
      </div>

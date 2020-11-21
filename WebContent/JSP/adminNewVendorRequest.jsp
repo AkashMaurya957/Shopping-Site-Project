@@ -46,7 +46,7 @@ $(document).ready(function(){
 
 });
 </script>
-<title>Insert title here</title>
+<title>New Vendor Request</title>
 </head>
 <body>
 
@@ -58,6 +58,21 @@ request.setAttribute("list9",list9);
 
 %>
 <div id="demo">
+
+ <c:if test="${empty list9}">
+  
+  <div class="NoOrderAvailable">
+  
+      <b>No Request Available for New Vendor</b>
+      <br><br><br>
+      <i class="fas fa-user-friends fa-7x"></i>
+      
+      
+  </div>
+  
+  </c:if>
+  
+  <c:if test="${!empty list9}">
 
 <table>
 <tr>
@@ -84,7 +99,13 @@ request.setAttribute("list9",list9);
 
 </table>
 
+</c:if>
+
+
 </div>
+
+
+
 
 </body>
 </html>

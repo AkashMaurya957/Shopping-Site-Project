@@ -20,9 +20,12 @@
 
 
 <%
-
-List<ProductBean> list4 = ProductDoa.getcart();
+String email =(String)session.getAttribute("Email");
+List<ProductBean> list4 = ProductDoa.getcart(email);
 request.setAttribute("list4", list4);
+
+session.setAttribute("CartProductShow", "Yes");
+
 
 %>
 

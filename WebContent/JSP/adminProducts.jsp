@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Products</title>
 </head>
 <body>
 
@@ -25,6 +25,23 @@ request.setAttribute("list5",list5);
 %>
 
 <div id="demo">
+
+<c:if test="${empty list5}">
+  <div class="NoOrderAvailable">
+  
+      <b>No Product is Upload Still</b>
+      <br><br><br><
+     <i class="fas fa-archive fa-7x"></i> 
+      
+      
+  </div>
+  
+  </c:if> 
+  
+ 
+ <c:if test="${!empty list5}"> 
+ 
+ 
 <table>
 
 <tr>
@@ -60,7 +77,9 @@ request.setAttribute("list5",list5);
   
 </tr>
 </c:forEach>
+
 </table>
+</c:if>
 </div>
 </body>
 </html>

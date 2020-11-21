@@ -51,11 +51,7 @@ public class Payment extends HttpServlet {
 		    
 		    HttpSession session= request.getSession();    
     String productId=request.getParameter("product");
-	String cardNumber = request.getParameter("cardnumber");
-	String accountHolder = request.getParameter("Holdername");
-	String cvv = request.getParameter("cvv");
-	String expiryDate = request.getParameter("date");
-	System.out.print(expiryDate);
+	
 	System.out.print("product Id"+productId);
 	 String email=(String)session.getAttribute("Email");
 	 
@@ -68,19 +64,10 @@ public class Payment extends HttpServlet {
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection  con=DriverManager.getConnection("jdbc:mysql://localhost:3306/shoppingbazzar","root","akash1996");
-	    PreparedStatement stmt = con.prepareStatement("select * from account where cardnumber=? and accountHolderName=? and cvv=? and ExpiryDate=?");
-	    stmt.setString(1,cardNumber);
-	    stmt.setString(2,accountHolder);
-	    stmt.setString(3,cvv);
-	    stmt.setString(4,expiryDate);
-	     
-	     
-	     ResultSet  rs= stmt.executeQuery();
+	 
 	
 	     
-	      if(rs.next()){
-	    	 
-	  	  
+	      
 	  	    String product = request.getParameter("product");
 	  	   
 	        String mode ="Card Payment";
@@ -130,16 +117,6 @@ public class Payment extends HttpServlet {
 	  	    	
 
 	    	  
-	           }
-	          else{
-	        	  
-	        	  int i=2;
-	        	  
-	        	  request.getRequestDispatcher("JSP/payment.jsp?value="+i+"").include(request, response);  
-			    	 
-	          
-	          }
-	   
 		
 	} 
 	catch (Exception e) {

@@ -41,6 +41,9 @@ public class SendOtp extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
+		
 		HttpSession session=request.getSession();
 		String sendCodeToEmail=request.getParameter("Useremail");
 		String result;
@@ -62,7 +65,7 @@ public class SendOtp extends HttpServlet {
 		    final String otpmessg = "Your One Time Password "+s+"";
 		    final String messageNotShare=" Never Share Your OTP with Anyone for Security";
 		    final String from = "abc100@gmail.com";
-		    final String pass = "100";
+		    final String pass = "abc";
 	     	final String subject="Reset Password OTP ";
 		    String host = "smtp.gmail.com";
 		    Properties props = new Properties();

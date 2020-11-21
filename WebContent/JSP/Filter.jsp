@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Search Product</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Mobile.css">
 
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>

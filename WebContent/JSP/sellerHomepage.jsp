@@ -14,7 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Vendor Home</title>
 <link rel="stylesheet" type="text/CSS" href="${pageContext.request.contextPath}/CSS/sellerHomepage.css">
-<link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/mobileupload.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/sellerProfile.css">
@@ -27,25 +27,28 @@
 
 
 
-<%  
-List<venderOrder> list=VendorDao.getSellerProductOrder();  
+<%
+
+String selleremail =(String)session.getAttribute("Email");
+
+List<venderOrder> list=VendorDao.getSellerProductOrder(selleremail);  
 request.setAttribute("list",list);  
 
-List<venderOrder> list1=VendorDao.getOrderDelivered();  
+
+
+List<venderOrder> list1=VendorDao.getOrderDelivered(selleremail);  
 request.setAttribute("list1",list1);  
 
 
-String email=(String)session.getAttribute("Email");
-System.out.print(email);
-
-List<ProductBean> list2=ProductDoa.statusForAddProduct(email);  
+List<ProductBean> list2=ProductDoa.statusForAddProduct(selleremail);  
 request.setAttribute("list2",list2);
 
-List<VendorRegisteration> list3=VendorDao.showVendorProfile(email);  
+List<VendorRegisteration> list3=VendorDao.showVendorProfile(selleremail);  
 request.setAttribute("list3",list3);
 
-List<ProductBean> list4=ProductDoa.Products(email);  
+List<ProductBean> list4=ProductDoa.Products(selleremail);  
 request.setAttribute("list4",list4);
+
 %>
 
 
@@ -71,7 +74,7 @@ request.setAttribute("list4",list4);
    
    <div class="dropdown-content">
     <a href="#" onclick="openCity(event, 'Mobile Register Request')">Mobile</a>
-    <a href="Logout">Clothes</a>
+    
     
   </div>
    </li>
@@ -117,9 +120,26 @@ request.setAttribute("list4",list4);
 </div>
 </div>
 <div id="User Report" class="tabcontent">
+  
+  
+  <c:if test="${empty list}">
+  <div class="NoOrderAvailable">
+  
+      <b>No Order Available For Now</b>
+      <br><br><br>
+      <i class="fas fa-shopping-basket fa-7x"></i>
+      
+      
+  </div>
+  
+  </c:if> 
+  
+  
+<c:if test="${!empty list}"> 
+<b style="font-size: 30px;">New Order</b>
+  
   <table>
-<h1>Place Order</h1>
-  <tr>
+   <tr>
  
     <th>Product Id</th>
     <th>Product Name</th>
@@ -158,11 +178,35 @@ request.setAttribute("list4",list4);
   </tr>
     </c:forEach>
 </table>
+ 
+   
+</c:if>
+
+
 </div>
 
 <div id="Order Report" class="tabcontent">
+
+
+<c:if test="${empty list1}">
+  <div class="NoOrderAvailable">
+  
+      <b>No Order You Do For Now</b>
+      <br><br><br><
+     <i class="fas fa-archive fa-7x"></i> 
+      
+      
+  </div>
+  
+  </c:if> 
+  
+ 
+ <c:if test="${!empty list1}"> 
+<br>
+<b style="font-size: 30px;">Delivered Product</b>
+  <br><br>
  <table>
-<h1>Product Complain</h1>
+
   <tr>
 
     <th>Product Id</th>
@@ -192,11 +236,31 @@ request.setAttribute("list4",list4);
   </tr>
  </c:forEach> 
 </table>
-</div>
+ 
+ </c:if>
+ 
+ </div>
 
 <div id="Item Report" class="tabcontent">
+
+<c:if test="${empty list4}">
+  
+  <div class="NoOrderAvailable">
+  
+      <b>Not Any Your Product Available on Shopping Bazzar</b>
+      <br><br><br>
+     <i class="fas fa-frown fa-7x"></i> 
+      
+  </div>
+  
+  </c:if>
+  
+  <c:if test="${!empty list4}">
+<br>
+<b style="font-size: 30px;">Your Products Available on Shopping Bazzar</b>
+<br><br>
 <table>
- <h1>Your Products</h1>
+
   <tr>
     <th>Product Category</th>
     <th>Product Brand </th>
@@ -218,13 +282,34 @@ request.setAttribute("list4",list4);
   </tr>
   </c:forEach>
 </table>
+
+</c:if>
+
 </div>
 
 
 
 <div id="Payment Report" class="tabcontent">
+
+<c:if test="${empty list2}">
+  
+  <div class="NoOrderAvailable">
+  
+      <b>No Request Available for Product </b>
+      <br><br><br>
+     <i class="fas fa-archive fa-7x"></i> 
+      
+  </div>
+  
+  </c:if>
+   
+ <c:if test="${!empty list2}">
+<br>
+<b style="font-size: 30px;">Your Product Request Status</b>
+ <br><br>
+ 
  <table>
- <h1>Your Product Request Status</h1>
+
   <tr>
     <th>Product Category</th>
     <th>Product Brand </th>
@@ -246,15 +331,17 @@ request.setAttribute("list4",list4);
   </tr>
   </c:forEach>
 </table>
+</c:if>
+
 </div>
 
 
 <div id="Account Setting" class="tabcontent">
 <br>
-  <h1>Your Profile</h1>
-  <br>
+<b style="font-size: 30px;">Profile</b>
+  <br><br>
   <c:forEach items="${list3}" var="bean">
-<form  method="post">
+<form  action="JSP/UpdateSeller.jsp" method="post">
 <div class="button button1 borderstyle" style="background: white;">
 <p class="lab">Name</p>
 <label class="data">${bean.getName()}</label>
@@ -283,6 +370,8 @@ request.setAttribute("list4",list4);
 <p class="lab">Sector </p>
 <label class="data">${bean.getSector()}</label>
 
+<p class="lab">Landmark</p>
+<label class="data">${bean.getArea()}</label>
 
 
 <p class="lab">City </p>
@@ -314,6 +403,8 @@ request.setAttribute("list4",list4);
 
 
 <div id="Status Product Report" class="tabcontent">
+ 
+ 
  <table>
 <h1>Status Product Report</h1>
   <tr>
@@ -331,6 +422,8 @@ request.setAttribute("list4",list4);
    <td></td>
   </tr>
  </table>
+
+
 </div>
 
 

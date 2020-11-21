@@ -17,9 +17,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Vendor Home</title>
+<title>Admin Homepage</title>
 <link rel="stylesheet" type="text/CSS" href="${pageContext.request.contextPath}/CSS/adminhome.css">
-<link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/sellerProfile.css">
@@ -212,6 +212,7 @@ request.setAttribute("list4", list4);
 	
 	<p>Total Customers&nbsp&nbsp<i class="fa fa-user boxicon" aria-hidden="true"></i></p>
 	<b>${bean.getTotalCustomer()}</b>
+	
 	
    </div>
 		</c:forEach>

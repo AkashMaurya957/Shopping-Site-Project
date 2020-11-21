@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>New Product Request</title>
 </head>
 <body>
 
@@ -24,6 +24,24 @@ request.setAttribute("list8",list8);
 
 <div id="demo">
 
+
+
+<c:if test="${empty list8}">
+  <div class="NoOrderAvailable">
+  
+      <b>No Request for Product to Add</b>
+      <br><br><br>
+     <i class="fas fa-archive fa-7x"></i> 
+      
+      
+  </div>
+  
+  </c:if> 
+  
+ 
+ <c:if test="${!empty list8}"> 
+ 
+ 
 <table>
 
 <tr>
@@ -32,7 +50,8 @@ request.setAttribute("list8",list8);
 <th>Model</th>
 <th>Quantity Available</th>
 <th>View Description</th>
-<th>Delete Product</th>
+<th>Reject Product</th>
+<th>Accept Product</th>
 
 </tr>
 <c:forEach items="${list8}" var="bean"> 
@@ -50,10 +69,21 @@ request.setAttribute("list8",list8);
 </form>
 </td>
 <td>
-<form method="post" action="RejectProduct?product=${bean.getProductId()}">
+ <form method="post" action="RejectProduct?product=${bean.getProductId()}">
     
-<input type="submit" class="btn" name="placeorder" value="Accept">
+<input type="submit" class="btn" name="placeorder" value="Reject">
 </form>
+</td>
+
+<td>
+
+
+<form method="post" action="AcceptProduct?product=${bean.getProductId()}">
+
+<input type="submit" class="btn" name="placeorder" value="Accept">
+
+</form>
+
 </td>
     
   
@@ -61,7 +91,8 @@ request.setAttribute("list8",list8);
 </c:forEach>
 </table>
 
-
+  </c:if> 
+  
 </div>
 </body>
 </html>

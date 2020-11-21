@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Block/unblock Users</title>
 </head>
 <body>
 
@@ -14,37 +14,29 @@ String Block=null;
 
 
 String email=request.getParameter("name");
-System.out.print(email);
+
 
  String block=request.getParameter("category");
- System.out.print(block); 
+
  
     
 		
 		if(block.equals("Block"))
 		{
 			Block="UnBlock";
-			System.out.print(Block);
+			
 		}
 		else{
 			
 			Block="Block";
-			System.out.print(Block);
+			
 		}
 		
 
 	
 		int i = CustomerInfoDao.block(email, Block);
 		
-		if(i>0)
-		{
-			
-			System.out.print("sucess");
-			
-		}else{
-			
-			System.out.print("something went wrong");
-		}
+		
 	
 		
 	

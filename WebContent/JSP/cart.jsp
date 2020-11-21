@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cart</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/cart.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>
@@ -47,14 +47,19 @@ $(document).ready(function(){
 
 <%
 
-List<ProductBean> list4 = ProductDoa.getcart();
+String email =(String)session.getAttribute("Email");
+List<ProductBean> list4 = ProductDoa.getcart(email);
 request.setAttribute("list4", list4);
 
 		    
    	
 %>
 
+ <c:if test="${!empty list4}">
+ 
 <div class="cartMainDiv">
+
+
 <hr>
 <br>
 <p class="cartName">My Cart</p>
@@ -93,6 +98,23 @@ request.setAttribute("list4", list4);
 <a class="continuebtn" href="cartPaymentPage.jsp">Continue Shopping &#10095</a>
 </div>
 
+</c:if>
+
+
+ <c:if test="${empty list4}">
+ 
+  
+<div class="cartMainDiv" style="text-align: center;color:grey;">
+
+
+ <b style="font-size: 30px;">YOU NOT ADD ITEM YET</b>
+      <br><br><br>
+      <i class="fas fa-user-friends fa-7x"></i>
+      
+      
+      
+</div>
+ </c:if>
 
 </body>
 </html>

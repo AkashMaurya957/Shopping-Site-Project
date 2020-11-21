@@ -5,12 +5,12 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
  
-  <link rel="stylesheet" type="text/css" href="..\CSS\header.css">
+  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/header.css">
 
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="plugin/ui/jquery-ui.js"></script>
@@ -40,7 +40,7 @@ jQuery(function(){
    <img src="${pageContext.request.contextPath}\logo\logo.png" class="logo">
    
    <ul class="siteName">
-   <li class="name"><span class="colorChange" style="font-family: 'Flamenco', cursive;">shoppingBazzar</span></li>
+   <li class="name"><span class="colorChange" >shoppingBazzar</span></li>
    </ul>
    
   <ul  class="main-nav clearfix pull-right" id="checkId" >

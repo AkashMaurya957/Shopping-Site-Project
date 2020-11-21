@@ -245,6 +245,7 @@ public class ProductDoa {
 	            while(rs.next())
 	            {  
 	                bean = new ProductBean();
+	                bean.setProductId(rs.getInt(1));
 	                bean.setBrandName(rs.getString(2));
 	                bean.setModel(rs.getString(3));
 	                bean.setPrice(rs.getString(4));
@@ -269,8 +270,7 @@ public class ProductDoa {
 	                image1 = rs.getBlob(22);
 	                image2 = rs.getBlob(23);
 	                bean.setCategory(rs.getString(24));
-	                System.out.print(rs.getString(24));
-
+	                
 	                /*First image*/
 	                InputStream inputStream = image.getBinaryStream();
 	                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -373,7 +373,8 @@ public class ProductDoa {
 	                bean.setWarrenty(rs.getString(19));
 	                bean.setDescription(rs.getString(20));
 	                bean.setCategory(rs.getString(24));
-	                
+	                bean.setEmail(rs.getString(25));
+		                
 	                image = rs.getBlob(21);
 	                image1 = rs.getBlob(22);
 	                image2 = rs.getBlob(23);
@@ -486,9 +487,10 @@ public class ProductDoa {
 		try
 		{
 			  Connection con=ProductDoa.getConnection(); 
-			  PreparedStatement ps=con.prepareStatement("Select * from mobile where sellerEmail=? and Approve=?"); 
+			  PreparedStatement ps=con.prepareStatement("Select * from mobile where sellerEmail=? and (Approve=? or Approve=?) "); 
 			  ps.setString(1, email);
 			  ps.setString(2, "Pending..");
+			  ps.setString(3, "Reject");
 			  ResultSet rs=ps.executeQuery();  
 	            while(rs.next())
 	            {  
@@ -624,7 +626,7 @@ public static int deleteProduct(String productId)
 }
 
 
-public static int rejectProduct(String productId)
+public static int AcceptProduct(String productId)
 {
 	int i=0;
 	
@@ -634,6 +636,36 @@ public static int rejectProduct(String productId)
 		Connection con = ProductDoa.getConnection();
 		PreparedStatement ps=con.prepareStatement("update mobile set Approve=? where ProductId =?");
 		ps.setString(1,"Accept");
+		ps.setInt(2,Integer.parseInt(productId));
+		
+	  i=ps.executeUpdate();
+	  
+	 
+	  con.close();
+		
+		
+	}catch(Exception e)
+	{
+		
+		System.out.print(e);
+	}
+
+	return i;
+	
+}
+
+
+
+public static int RejectProduct(String productId)
+{
+	int i=0;
+	
+	try
+	{
+		
+		Connection con = ProductDoa.getConnection();
+		PreparedStatement ps=con.prepareStatement("update mobile set Approve=? where ProductId =?");
+		ps.setString(1,"Reject");
 		ps.setInt(2,Integer.parseInt(productId));
 		
 	  i=ps.executeUpdate();
@@ -746,8 +778,9 @@ public static  int  storeProductIdInCart(Cart bean)
 }
 
 
-public static List<ProductBean> getcart()
+public static List<ProductBean> getcart( String email)
 {
+	
 	
 	List<ProductBean> list = new ArrayList<ProductBean>();
 	Blob image;
@@ -755,8 +788,8 @@ public static List<ProductBean> getcart()
 	try {
 		
 		Connection con = ProductDoa.getConnection();
-		PreparedStatement ps = con.prepareStatement("Select * from cartproduct");
-		
+		PreparedStatement ps = con.prepareStatement("Select * from cartproduct where Email =?");
+		ps.setString(1, email);
 		ResultSet  rs=ps.executeQuery();
 		while(rs.next())
 		{
@@ -1051,6 +1084,74 @@ public static List<ProductBean> getTotalProductInCart(String Email)
 	
 	
 }
+
+
+
+
+public static List<ProductBean> getProductImage( int id)
+{
+	
+
+	Blob image= null;
+
+	List<ProductBean> list = new ArrayList<ProductBean>();
+	
+	
+	try
+	{
+		  Connection con=ProductDoa.getConnection(); 
+		  PreparedStatement ps=con.prepareStatement("select * from mobile where productId=?");  
+		  ps.setInt(1,id); 
+		  ResultSet rs=ps.executeQuery();  
+            while(rs.next())
+            {      
+            	
+            	ProductBean bean = new ProductBean();
+            	bean.setBrandName(rs.getString(2));
+                bean.setModel(rs.getString(3));
+                bean.setPrice(rs.getString(4));
+                
+                image = rs.getBlob(21);
+                
+                /*First image*/
+                InputStream inputStream = image.getBinaryStream();
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                byte[] buffer = new byte[4096];
+                int bytesRead = -1;
+                 
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);                  
+                }
+                 
+                byte[] imageBytes = outputStream.toByteArray();
+                String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+                
+                 
+                inputStream.close();
+                outputStream.close();
+                bean.setImage1(base64Image);
+                
+               
+                list.add(bean);
+                
+                
+		
+            }
+        }
+	catch(Exception e)
+	{
+		
+		e.printStackTrace();
+        System.out.print("Unable to fetch image");
+        
+		
+	}
+	return list;
+	
+	
+	
+	}
+
 
 
 

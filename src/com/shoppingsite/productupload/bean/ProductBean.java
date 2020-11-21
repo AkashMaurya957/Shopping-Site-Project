@@ -9,6 +9,8 @@ public class ProductBean {
 	private String brandName,model,price,operatingSystem,camera,ram,internalMemory,soldby,
 	 wirelessTechnology,itemdimensions,displaysize,weight,color,simslot,batteryPower,whatinBox,
 	 specialfeatures,warrenty,description,image1,image2,image3,category,email,quantity,reason,Approvalstatus,TotalInCart;
+	
+	
 	private int productId;
 	
 	

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Change Password</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/changePassword.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 <label class="lab">Confirm Password</label>
 <input type="text" name="ConfirmPassword">
 <br><br>
-<input type="submit" class="sub">
+<input type="submit" class="sub" value="Change Password">
 </div>
 </form>
 </body>

@@ -5,7 +5,7 @@
 body,html{
  padding:0px;
 margin:0px;
- font-size:30px;
+ font-size:18px;
 
 }
 
@@ -23,7 +23,7 @@ transition:0.2s ease;
 
 label {
   padding: 12px 12px 12px 0;
-  display: inline-block;
+  display: inline-block; font-size:18px;
 }
 
 input[type=submit] {
@@ -104,18 +104,5 @@ padding: 20px;
 
 /* Style the footer */
 
-*{
 
-font-family: 'Flamenco', cursive;
- padding :0px;
-margin:0px;
-
-}
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-   .column.middle,.col-25, input[type=submit] {
-    width: 100%;
-margin-top: 0;
-  }
-}
 

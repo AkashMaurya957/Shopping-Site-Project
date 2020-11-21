@@ -1,19 +1,14 @@
 package com.shoppingsiteproductupload.dao;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.sql.Blob;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Base64;
+
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
-import com.shoppingsite.productupload.bean.ProductBean;
-import com.shoppingsite.productupload.bean.UserDetails;
 import com.shoppingsite.productupload.bean.VendorRegisteration;
 import com.shoppingsite.productupload.bean.venderOrder;
 
@@ -38,10 +33,10 @@ public class VendorDao {
 		    ps.setDate(6,sqlDate);
 		    ps.setString(7,bean.getHouseNo());
 		    ps.setString(8,bean.getSector());
-		    ps.setString(9,bean.getArea());
-		    ps.setString(10,bean.getCity());
-		    ps.setString(11,bean.getState());
-		    ps.setString(12,bean.getCountry());
+		    ps.setString(9,bean.getCountry());
+		    ps.setString(10,bean.getState());
+		    ps.setString(11,bean.getCity());
+		    ps.setString(12,bean.getArea());
 		    ps.setString(13,bean.getPincode());
 		    ps.setString(14,Vendor);
 		    
@@ -57,8 +52,44 @@ public class VendorDao {
 		
 		
 	}
+	
+	
+	public static int UpdateVendorProfile(VendorRegisteration vendor){
+		
+		int i=0;
+		
+		try {
+			
+			Connection con = ProductDoa.getConnection();
+			PreparedStatement ps = con.prepareStatement("update UserDetails set UserName=? , mobile=? , Gender=? , HouseNo=? , Sector=? , country=? , City=? , State=? , Area=? , AreaPin=? where Email=?");
+			ps.setString(1,vendor.getName());
+			ps.setString(2,vendor.getMobile());
+			ps.setString(3,vendor.getGender());
+			ps.setString(4,vendor.getHouseNo());
+			ps.setString(5,vendor.getSector());
+			ps.setString(6,vendor.getCountry());
+			ps.setString(7,vendor.getCity());
+			ps.setString(8,vendor.getState());
+			ps.setString(9,vendor.getArea());
+			ps.setString(10,vendor.getPincode());
+			ps.setString(11, vendor.getEmail());
+			
+		    i = ps.executeUpdate();
+			
+		}
+		catch(Exception e) {
+			
+			System.out.print(e);
+			
+		}
+		
+		
+		return i;
+		
+	}
+	
 
-	public static  List<venderOrder> getSellerProductOrder()
+	public static  List<venderOrder> getSellerProductOrder(String email)
 	{
 		
 		List<venderOrder> list = new ArrayList<venderOrder>();
@@ -66,11 +97,13 @@ public class VendorDao {
 		try
 		{
 			  Connection con=ProductDoa.getConnection(); 
-			  PreparedStatement ps=con.prepareStatement("select * from productorder where place = '"+cond+"'");  
+			  PreparedStatement ps=con.prepareStatement("select * from productorder where SellerEmail ='"+email+"' and place = '"+cond+"'");  
 			  
 			  ResultSet rs=ps.executeQuery();  
 	            while(rs.next())
 	            {  
+	            	
+	            	System.out.print("IN "+email);
 	               venderOrder bean = new venderOrder();
 	              
                     bean.setOderId(Integer.toString(rs.getInt(1)));
@@ -110,7 +143,7 @@ public class VendorDao {
 
 	
 
-	public static  List<venderOrder> getOrderDelivered()
+	public static  List<venderOrder> getOrderDelivered(String email)
 	{
 		
 		List<venderOrder> list = new ArrayList<venderOrder>();
@@ -118,7 +151,7 @@ public class VendorDao {
 		try
 		{
 			  Connection con=ProductDoa.getConnection(); 
-			  PreparedStatement ps=con.prepareStatement("select * from productorder where place = '"+cond+"'");  
+			  PreparedStatement ps=con.prepareStatement("select * from productorder where SellerEmail ='"+email+"' AND place = '"+cond+"'");  
 			  
 			  ResultSet rs=ps.executeQuery();  
 	            while(rs.next())
@@ -193,6 +226,8 @@ public class VendorDao {
 	public static List<VendorRegisteration> showVendorProfile(String id)
 	{
 		
+		 System.out.print("Call Succes");
+		 
 		List<VendorRegisteration> list = new ArrayList<VendorRegisteration>();
 	
 		try
@@ -202,35 +237,37 @@ public class VendorDao {
 			  ps.setString(1,id);
 			  ResultSet rs=ps.executeQuery();
 			  
+			  System.out.print("Call Succes");
 			  while(rs.next())
 			  {
 				VendorRegisteration bean=new VendorRegisteration();
 
+				System.out.print("Call Succes");
+				  
 				bean.setEmail(rs.getString(1));
 				bean.setName(rs.getString(2));
-				bean.setMobile(String.valueOf(rs.getInt(4)));
+				bean.setMobile(rs.getString(4));
 				bean.setGender(rs.getString(5));
-				bean.setDateOFRegisteration(rs.getString(22));
+				//bean.setDateOFRegisteration(rs.getString(22));
 				bean.setHouseNo(rs.getString(8));
 				bean.setSector(rs.getString(9));
 				bean.setCountry(rs.getString(10));
 				bean.setState(rs.getString(11));
 				bean.setCity(rs.getString(12));
+				bean.setArea(rs.getString(13));
 				bean.setPincode(rs.getString(14));
 				
+				
+				System.out.println(rs.getString(1));
 				list.add(bean);
 				
-				
-				
-				
-				  
 				  
 			  }
 			  
 		}catch(Exception e)
 		{
 			
-			
+			System.out.print(e);
 		}
 		return list;
 		
@@ -326,18 +363,21 @@ public class VendorDao {
     		{
     			VendorRegisteration bean = new VendorRegisteration();
 
+    			
     			bean.setEmail(rs.getString(1));
 				bean.setName(rs.getString(2));
 				bean.setMobile(rs.getString(4));
 				bean.setGender(rs.getString(5));
-				bean.setDateOFRegisteration(rs.getString(22));
+				//bean.setDateOFRegisteration(rs.getString(22));
 				bean.setHouseNo(rs.getString(8));
 				bean.setSector(rs.getString(9));
 				bean.setCountry(rs.getString(10));
 				bean.setState(rs.getString(11));
 				bean.setCity(rs.getString(12));
 				bean.setPincode(rs.getString(14));
-				bean.setBlockUnblock(rs.getString(20));
+				bean.setBlockUnblock(rs.getString(17));
+				
+				
     			
     			list.add(bean);
     			

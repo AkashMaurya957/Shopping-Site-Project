@@ -70,7 +70,7 @@ public class PlaceOrder extends HttpServlet {
 try
 {
 	  Connection con=ProductDoa.getConnection(); 
-	  PreparedStatement ps=con.prepareStatement("insert into productorder(ProductId,Catgory,Productname,Price,Quantity,PurchaseDate,CustomerEmail,FullName,MobileNumber,houseNo,sector,Landmark,City,State,Country,Pincode,Status,PaymentMode) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");  
+	  PreparedStatement ps=con.prepareStatement("insert into productorder(ProductId,Catgory,Productname,Price,Quantity,PurchaseDate,CustomerEmail,FullName,MobileNumber,houseNo,sector,Landmark,City,State,Country,Pincode,Status,PaymentMode,SellerEmail) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");  
 	  String name=bean.getBrandName() + bean.getModel();
 	  ps.setInt(1,bean.getProductId()); 
 	  ps.setString(2,bean.getCategory()); 
@@ -90,6 +90,7 @@ try
 	  ps.setString(16,userbean.getPincode()); 
 	  ps.setString(17,PaymentMode); 
 	  ps.setString(18,paid); 
+	  ps.setString(19,bean.getEmail());
 	  
 	  
 	   int  i=ps.executeUpdate(); 

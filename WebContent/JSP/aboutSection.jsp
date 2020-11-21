@@ -47,42 +47,11 @@ an easy access to Administrator  to manage Customer and vendor.
   <img src="../Images/rakhi1.jpeg" class="images">
   <div>
   <h3>Rakhi Gupta</h3>
-  <h4>UI Designer & Coding </h4>
+  <h4>UI Designer </h4>
   </div>
   </div>
  <hr>
-  <div class="details image">
- 
-  <img src="../Images/adarshsaini.jpeg" class="images">
-  <div>
-  <h3>Adarsh Kumar</h3>
-  <h4>Client Side Coding & UI Designer</h4>
-  </div>
-  </div>
-  <hr>
-  
- 
-  <div class="details image">
- 
-  <img src="../Images/naveen.jpeg" class="images">
-  <div>
-  <h3>Naveen Saini</h3>
-  <h4>Tester & Maintenance</h4>
-  </div>
-  </div>
-  <hr>
-  <div class="details image">
- 
-  <img src="../Images/anshul.jpeg" class="images">
-  <div>
-  <h3>Anshul Bansal</h3>
-  <h4>UI Designer & Maintenance</h4>
-  </div>
-  </div>
-  <hr>
- 
- 
-  <div class="details image">
+   <div class="details image">
  
   <img src="../Images/akashmaurya.jpeg" class="images">
   <div>

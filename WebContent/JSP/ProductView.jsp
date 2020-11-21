@@ -9,8 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/productdescription.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-<title>Insert title here</title>
+<title>Product Description</title>
 
 
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>
@@ -55,18 +56,24 @@ String id=request.getParameter("product");
 session.setAttribute("productId", id);
 
 String product=(String)session.getAttribute("productId");
-System.out.print("oyro"+product);
 
 List<ProductBean> bean=ProductDoa.getProductDetails(product);
 request.setAttribute("list",bean);
 
+String custmail =(String)session.getAttribute("Email");
+
 session.setAttribute("CurrentPage","JSP/ProductView.jsp");
 
-List<feedback> beanReview=CustomerFeedBack.getProductReview(product);
+List<feedback> beanReview=CustomerFeedBack.getProductReview(product,custmail);
 request.setAttribute("list1",beanReview);
+
+int prt = Integer.parseInt(product);
+List<feedback> rating=CustomerFeedBack.getTotalProductRating(prt);
+request.setAttribute("li",rating);
 
 
 %> 
+
 
  
 <%@ include file = "../JSP/header.jsp" %>
@@ -139,6 +146,7 @@ request.setAttribute("list1",beanReview);
     <c:forEach  items="${list}" var="bean">
  <form action="${pageContext.request.contextPath}/Feedback?category=${bean.getCategory()}" method="post" style="display: block;">
  <br><br>
+ 
     <p>Please rate our Product:</p>
     
 <fieldset class="rating">
@@ -223,9 +231,9 @@ function showSlides(n) {
 <tr><td><input type="submit" class="button button1" value="Buy Now"></td>
 
 
-
-<td><a href="" name="addtoCart" class="button button1" data-pid="${bean.getProductId()}" data-p="${bean.getCategory()}">Add To Cart</a></td>
-
+<c:forEach  items="${list}" var="bean">
+<td><a  name="addtoCart" class="button button1" data-pid="${bean.getProductId()}" data-p="${bean.getCategory()}">Add To Cart</a></td>
+</c:forEach>
 
 </tr>
 
@@ -390,9 +398,51 @@ function showSlides(n) {
   
  
 </table>
-   </div>
+
+
+<div >
+
+    
+<c:forEach items="${li}" var="rating">
+<br>
+<b style="color:#B71C1C;font-size: 30px;">Customers reviews</b><br><br>
+ <b style="color:#00796B;font-size: 25px;">Product Rating ${rating.getShowRating()} out of 5</b><br>
+   <b style="color:#26A69A;font-size: 20px;">${rating.getTotalCount()} customer ratings</b><br><br>
+   <div style="display: flex;">
+
+     <div>
+     
+    <b>${rating.getFiveStar()} %</b><br><br>
+    <b>${rating.getFourStar()} %</b><br><br>
+    <b>${rating.getThreeStar()} %</b><br><br>
+    <b>${rating.getTwoStar()} %</b><br><br>
+    <b>${rating.getOnestar()} %</b>
+    
+    </div>
+    
+  
+  <div>
+   &nbsp&nbsp<progress id="file" value="${rating.getFiveStar()}" max="100"> </progress>&nbsp&nbsp<b>5 star</b>
+<br><br>
+   &nbsp&nbsp<progress id="file" value="${rating.getFourStar()}" max="100"></progress> &nbsp&nbsp<b>4 star</b>
+<br><br>
+   &nbsp&nbsp<progress id="file" value="${rating.getThreeStar()}" max="100"> </progress>&nbsp&nbsp<b>3 star</b>
+<br><br>
+   &nbsp&nbsp<progress id="file" value="${rating.getTwoStar()}" max="100"> </progress> &nbsp&nbsp<b>2 star</b>
+<br><br>
+   &nbsp&nbsp<progress id="file" value="${rating.getOnestar()}" max="100"> </progress>&nbsp&nbsp <b>1 star</b>
+</div>
+
+</div>
+</c:forEach>
+
+
+</div>
    
+   </div>
+
  </div>	
+ <br><br>
  <hr>
  <br>
 
@@ -404,21 +454,51 @@ function showSlides(n) {
     <br>
     
    <c:forEach items="${list1}" var="beanReview">
+  
+  
    
    <div style="display: flex;"> 
   
-  <img src="../Icons/userIcon.png" style="height: 50px;width: 50px; ">
-  <div>
-  &nbsp&nbsp<p>${beanReview.getCustomerName()}</p>
-  </div>
-  
-  </div>
-  <p style="margin-left: 50px;">${beanReview.getCustomerEmail()}</p>
-  <p style="margin-left: 50px;">${beanReview.getComment()}</p>
-  <p style="margin-left: 50px;">${beanReview.getRating()}</p>
+  <img src="../Icons/userIcon.png" style="height: 40px;width: 50px; ">
+ 
+  &nbsp&nbsp<b>${beanReview.getCustomerName()}</b> <div style="display: flex;margin-left:50px;background-color:#0b6623;padding:5px;border-radius: 10px;"> <p style="color: white;">${beanReview.getRating()}</p>&nbsp<i style="Color:white" class="fas fa-star"></i></div>
   
   
-     <br><hr><br>
+  </div><br>
+  <p style="margin-left: 50px;">${beanReview.getComment()}</p><br>
+  
+ <c:choose>
+
+<c:when test="${beanReview.getCustomerEmail() == beanReview.getLoginCustomerMail()}">
+ 
+  
+  <b style="margin-left: 50px;cursor: pointer;">Edit</b>
+  
+</c:when>
+<c:otherwise>
+
+</c:otherwise>
+  </c:choose>
+  
+  
+  
+  
+  &nbsp&nbsp<a style="margin-left: 50px;cursor: pointer;" href="replySection.jsp?commentId=${beanReview.getId()}&commentemail=${beanReview.getCustomerEmail()}&commentername=${beanReview.getCustomerName()}">Reply</a>
+
+<c:choose>
+
+<c:when test="${beanReview.getCustomerEmail() == beanReview.getLoginCustomerMail()}">
+ 
+ 
+  &nbsp&nbsp<a style="margin-left: 50px;cursor: pointer;" href="${pageContext.request.contextPath}/JSP/deleteComment.jsp?ProductId=${beanReview.getProductID()}&ID=${beanReview.getId()}">Delete</a>
+
+</c:when>
+<c:otherwise>
+
+</c:otherwise>
+  </c:choose>
+  <br><br><hr><br>
+  
    </c:forEach>
   </div>
  

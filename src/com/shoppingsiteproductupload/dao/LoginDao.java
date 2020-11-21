@@ -33,7 +33,7 @@ public class LoginDao {
 		    	  
 		           }
 		          else{
-		        	  PreparedStatement stmt2 = con.prepareStatement("select * from sellerregisteration where Email=? ");
+		        	  PreparedStatement stmt2 = con.prepareStatement("select * from userdetails where Email=? ");
 			  		   stmt2.setString(1,email);
 			  		     
 			  		  ResultSet  rs2= stmt2.executeQuery();
@@ -41,7 +41,7 @@ public class LoginDao {
 			        	 
 		        	  if(rs2.next())
 		        	  {
-		        		  PreparedStatement setPass1=con.prepareStatement("update sellerregisteration set Password=? where Email=?");
+		        		  PreparedStatement setPass1=con.prepareStatement("update userdetails set Password=? where Email=?");
 				          setPass1.setString(1, Password);
 				          setPass1.setString(2,email);
 				          
@@ -49,32 +49,6 @@ public class LoginDao {
 				    	  
 				          
 		        		  
-		        	  }else {
-		        		  
-
-			        	
-			        	  PreparedStatement stmt1 = con.prepareStatement("select * from customerregisteration where Email=? ");
-			  		      stmt1.setString(1,email);
-			  		  
-			  		     
-			  		     
-			  		     ResultSet  rs1= stmt1.executeQuery();
-			  		 
-			        	  
-			        	  if(rs1.next())
-			        	  {
-			        		 
-			        		  PreparedStatement setPass2=con.prepareStatement("update customerregisteration set Password=? where Email=?");
-					          setPass2.setString(1, Password);
-					          setPass2.setString(2,email);
-					          
-					        i=setPass2.executeUpdate();
-					    	  
-			        		  
-			        	  }
-			        	
-			        	  
-			   
 		        	  }
 		          }
 		   

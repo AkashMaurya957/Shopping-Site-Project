@@ -19,7 +19,7 @@ body{
    background-color:#F5F5F5;
    font-size:20px;
    overflow-x:hidden;
-   font-family: 'Flamenco', cursive;
+   font-family: 'Dosis', sans-serif;
    }
 .foot{
 

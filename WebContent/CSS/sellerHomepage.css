@@ -6,6 +6,14 @@
   margin:0px;
 }
 
+
+body{
+	
+	
+	 font-family: 'Dosis', sans-serif;
+ 
+ 
+}
 /* Style the tab */
 .tab {
   float: left;
@@ -242,6 +250,18 @@ width:100%;
 .dropdown1:hover .dropdown-content {display: block;}
 
 .dropdown1:hover .dropbtn {background-color: #C4DFE6;}
+
+
+
+.NoOrderAvailable{
+
+color:#808080;
+padding:10%;
+}
+
+
+
+
 
 
 

@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -74,10 +75,17 @@ public class Accept extends HttpServlet {
     		ps.setString(1, Email);
     		ResultSet rs=ps.executeQuery();
     		
+    		Random num = new Random();
+    		int rand = num.nextInt(10000);
+    		
+    		String add = ""+rand;
+    		
     		while(rs.next())
     		{
     	    String name=rs.getString(2);
-    		String Password=rs.getString(2)+rs.getString(4);
+    	    String[] arrOfStr = name.split(" ");
+    	    
+    	     String Password=arrOfStr[0]+add;
     		
     		PreparedStatement ps1=con.prepareStatement("update UserDetails set Password=? where Email=? ");
     		ps1.setString(1, Password);
@@ -97,6 +105,7 @@ public class Accept extends HttpServlet {
     		props.put("mail.smtp.auth", "true");
     		props.put("mail.smtp.starttls.enable", "true");
     		props.put("mail.user", from);
+    		
     		props.put("mail.password", pass);
     		props.put("mail.smtp.port", "465");
     		props.put("mail.smtp.socketFactory.port", "465");

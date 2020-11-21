@@ -41,8 +41,8 @@ public class Resend extends HttpServlet {
 		String email=(String)session.getAttribute("email");
 
 		final String messg = "Your OTP Code :-"+session.getAttribute("OTP")+" \n Never Share Your OTP with Anyone for Security";
-		final String from = "abc100@gmail.com";
-		final String pass = "100";
+		final String from = "abc@gmail.com";
+		final String pass = "abc";
 		final String subject="Reset Password OTP ";
 		String host = "smtp.gmail.com";
 		Properties props = new Properties();

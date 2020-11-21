@@ -28,17 +28,17 @@ public class CustomerInfoDao {
 
 	    
 		Connection con = ProductDoa.getConnection();
-		PreparedStatement ps=con.prepareStatement("update UserDetails set fullname=? ,mobilenumber=? ,houseno=? ,Sector=?  ,city=? ,state=? ,country=?,AreaPin=? where email =?");
+		PreparedStatement ps=con.prepareStatement("update UserDetails set fullname=? ,mobilenumber=? ,houseno=? ,Sector=?,Area =?  ,city=? ,state=? ,country=?,AreaPin=? where email =?");
 		ps.setString(1,user.getFullName());
 		ps.setString(2, user.getMobilenumber());
 		ps.setString(3,user.getHno());
 		ps.setString(4,user.getSector());
-		//ps.setString(5, user.getLandmark());
-		ps.setString(5,user.getCity());
-		ps.setString(6,user.getState());
-		ps.setString(7,user.getCountry());
-		ps.setString(8, user.getPincode());
-		ps.setString(9, user.getEmail());
+		ps.setString(5, user.getLandmark());
+		ps.setString(6,user.getCity());
+		ps.setString(7,user.getState());
+		ps.setString(8,user.getCountry());
+		ps.setString(9, user.getPincode());
+		ps.setString(10, user.getEmail());
 		
 		 i=ps.executeUpdate();  
 		
@@ -71,19 +71,17 @@ public class CustomerInfoDao {
 	            {  
 
 	            	UserDetails bean = new UserDetails();
-	            	bean.setEmail(rs.getString(1));
+	           
+	            	bean.setEmail(id);
+	            	
 	            	bean.setName(rs.getString(2));
-	            	bean.setPassword(rs.getString(3));
 	            	bean.setMobile(rs.getString(4));
-	            	bean.setFullName(rs.getString(5));
-	            	bean.setMobilenumber(rs.getString(6));
-	            	bean.setDateOfRegisteration(rs.getString(7));
 	            	bean.setHno(rs.getString(8));
 	            	bean.setSector(rs.getString(9));
-	            	bean.setLandmark(rs.getString(10));
-	            	bean.setCity(rs.getString(11));
-	            	bean.setState(rs.getString(12));
-	            	bean.setCountry(rs.getString(13));
+	            	bean.setCountry(rs.getString(10));
+	            	bean.setState(rs.getString(11));
+	            	bean.setCity(rs.getString(12));
+	            	bean.setLandmark(rs.getString(13));
 	            	bean.setPincode(rs.getString(14));
 	            	
 	            	list.add(bean);

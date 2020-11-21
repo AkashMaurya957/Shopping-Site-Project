@@ -1,3 +1,5 @@
+<%@page import="java.util.HashSet"%>
+<%@page import="org.apache.taglibs.standard.lang.jstl.test.Bean1"%>
 <%@page import="com.shoppingsite.productupload.bean.Cart"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -8,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Add To Cart</title>
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="plugin/ui/jquery-ui.js"></script>
 
@@ -21,35 +23,41 @@
 
  String productID=request.getParameter("name");
 String category=request.getParameter("category");
- String email=( String)session.getAttribute("Email");   
+ String email=( String)session.getAttribute("Email"); 
+ 
+ System.out.print(productID);
+ System.out.print(category);
+ 
+ Cart bean=new Cart();
+
 	  
   if(session.getAttribute("Email")!=null)
   {
 	  
-	  Cart bean=new Cart();
+	
 	  bean.setEmail(email);
 	  bean.setProductID(productID);
 	  bean.setTablename(category);
 
-  int i =ProductDoa.storeProductIdInCart(bean);
-  
-  
-  if(i>0)
-  {
-	  System.out.print("Success");
-	 
-  }
-  else
-  {
-	  
 
-		System.out.print("Something Went wrong");
-  }
-  
-  }
-  else{
-	  
-	 System.out.print("i.m here");
+
+	  int i = ProductDoa.storeProductIdInCart(bean);
+	    
+	    
+	    if(i>0)
+	    {
+	  	  System.out.print("Success");
+	  	 
+	    }
+	    else
+	    {
+	  	  
+
+	  		System.out.print("Something Went wrong");
+	    }
+
+	    
+
 	
 	
   }

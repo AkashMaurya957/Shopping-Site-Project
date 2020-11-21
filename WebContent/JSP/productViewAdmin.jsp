@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/productdescription.css">
 
-<title>Insert title here</title>
+<title>Product View</title>
 
 
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Customer Details</title>
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="plugin/ui/jquery-ui.js"></script>
 
@@ -54,6 +54,24 @@ request.setAttribute("list6",list6);
 
 %>
 <div id="demo">
+
+
+
+ <c:if test="${empty list6}">
+  
+  <div class="NoOrderAvailable">
+  
+      <b>No Customer is Join for Now</b>
+      <br><br><br>
+     <i class="fas fa-user fa-7x"></i>
+      
+  </div>
+  
+  </c:if>
+  
+  <c:if test="${!empty list6}">
+  
+  
 <table>
 
 <tr>
@@ -78,6 +96,9 @@ request.setAttribute("list6",list6);
 </tr>
 </c:forEach>
 </table>
+ </c:if>
+ 
+ 
 </div>
 </body>
 </html>

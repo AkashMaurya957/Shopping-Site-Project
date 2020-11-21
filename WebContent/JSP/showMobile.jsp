@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Product Details</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/sliderstyle.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Filter.css">
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>

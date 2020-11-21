@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>OTP verification</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/otp.css">
 </head>
 <body>
@@ -40,7 +40,7 @@ session.setAttribute("OtpNotMatch","");
 	<tr>
 	<td></td>
 	<td></td>
-	<td> <input type="submit" name="otpsub" value="CONFIRM" style="background: #004445;padding: 8px;color:white;border-radius:20px; white;"/>&nbsp&nbsp&nbsp<a style="color:#004445;cursor:pointer; " href="${pageContext.request.contextPath}/Resend">Resend</a></td>
+	<td> <input type="submit" name="otpsub" value="CONFIRM" style="background: #004445;cursor:pointer ;padding: 8px;color:white;border-radius:20px; white;"/>&nbsp&nbsp&nbsp<a style="color:#004445;cursor:pointer; " href="${pageContext.request.contextPath}/Resend">Resend</a></td>
 	</tr>
 	</table>
 	<br>

@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welome to shopping Bazzar</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/loaderStyle.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/sliderstyle.css">
 <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
 
@@ -44,7 +45,13 @@ $(document).ready(function(){
 
 </script>
 </head>
-<body>
+<body onload="ProgressLoading()">
+
+<div id="Progress">
+
+        <div class="loader"> </div>
+
+ </div>
 
 <%
 
@@ -213,6 +220,9 @@ request.setAttribute("list",list);
 
 </div>
 
+    
+<%@ include file ="footer.jsp" %>
+
 
 
 <script>
@@ -242,11 +252,20 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
+
+
+
+
+function ProgressLoading(){
+	
+	$('#Progress').css('display','none');
+	
+}
+
+
 </script>
 
-
-    
-<%@ include file ="footer.jsp" %>
 
 
 </body>

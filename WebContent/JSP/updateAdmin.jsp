@@ -9,11 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/shippingaddress.css">
 
-<title>Insert title here</title>
+<title>Update Admin</title>
 </head>
 <body>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
-<%@ include file = "../JSP/normalheader.jsp" %>
 
 <% 
 

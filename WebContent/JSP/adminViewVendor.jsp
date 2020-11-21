@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Vendor List</title>
 <script type="text/javascript" src="plugin/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="plugin/ui/jquery-ui.js"></script>
 
@@ -49,6 +49,22 @@ List<VendorRegisteration> list7=VendorDao.getVendor();
 request.setAttribute("list7",list7);
 %>
 <div id="demo">
+
+<c:if test="${empty list7}">
+  
+  <div class="NoOrderAvailable">
+  
+      <b>No Vendor Join</b>
+      <br><br><br>
+      <i class="far fa-frown fa-7x"></i>
+      
+      
+  </div>
+  
+  </c:if>
+  
+  <c:if test="${!empty list7}">
+  
  <table>
 
 
@@ -76,6 +92,8 @@ request.setAttribute("list7",list7);
 </c:forEach>	
 
 </table>
+</c:if>
+
 </div>
 </body>
 </html>

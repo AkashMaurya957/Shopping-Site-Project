@@ -4,6 +4,18 @@ public class Cart {
 	
 private String  tablename,ProductID,Email;
 
+
+public Cart(){
+	
+	
+}
+
+public Cart(String tablename, String productID) {
+	
+	this.tablename = tablename;
+	ProductID = productID;
+}
+
 public String getTablename() {
 	return tablename;
 }

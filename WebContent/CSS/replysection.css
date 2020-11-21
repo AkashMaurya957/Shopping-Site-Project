@@ -1,0 +1,64 @@
+body{
+	
+	 font-family: 'Dosis', sans-serif;
+	 
+	
+}
+
+textarea{
+	
+	border-radius: 1%;
+	padding: 1%;
+	
+	
+}
+
+.changeStr{
+	
+	border-radius: 20px;
+	padding: 8px;
+	background-color:#2C7873;
+	color: white;
+}
+
+
+.name{
+	
+	
+	margin-top: 10px;
+}
+
+.viewCustCommt{
+	
+	width:100%;
+	background-color:#DCDCDC;
+	padding: 3%;
+ 
+	
+}
+
+.reviewrep{
+	
+	width:90%;
+	padding: 3%;
+   
+}
+
+.imageico{
+
+	height: 40px;
+	width: 50px;
+	border-radius: 50%; 
+}
+
+#file{
+
+	height:15px;
+   border-radius:5px;
+   color:#2C7873;
+   border-color:#2C7873;
+  
+	
+	
+}
+

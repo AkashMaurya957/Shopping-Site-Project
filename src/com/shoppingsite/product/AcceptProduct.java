@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.shoppingsiteproductupload.dao.ProductDoa;
 
 /**
- * Servlet implementation class RejectProduct
+ * Servlet implementation class AcceptProduct
  */
-@WebServlet("/RejectProduct")
-public class RejectProduct extends HttpServlet {
+@WebServlet("/AcceptProduct")
+public class AcceptProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RejectProduct() {
+    public AcceptProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,27 +36,25 @@ public class RejectProduct extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-response.setContentType("text/html");  
-	   
-
-String productId = request.getParameter("product");
-System.out.print(productId);
 
 
-int i=ProductDoa.RejectProduct(productId);
-
- if(i>0) {
-		
-	  request.getRequestDispatcher("JSP/adminHomepage.jsp").include(request, response);  
-    	  
-  }else {
-	  
-	  System.out.print("Error ");
-  }
- 
- 
- 
-		  
+		   
+				String productId = request.getParameter("product");
+				System.out.print(productId);
+				
+				
+				int i=ProductDoa. AcceptProduct(productId);
+				
+				 if(i>0) {
+						
+					  request.getRequestDispatcher("JSP/adminHomepage.jsp").include(request, response);  
+				    	  
+				  }else {
+					  
+					  System.out.print("Error ");
+				  }
+				 
+				 
 	}
 
 }
